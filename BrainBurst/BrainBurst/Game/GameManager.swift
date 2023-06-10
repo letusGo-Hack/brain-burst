@@ -23,4 +23,8 @@ final class GameManager {
         }
         return quizs
     }
+    
+    func checkAnswer(quiz: Quiz, userAnswer: Int) -> Bool {
+        return userAnswer == quiz.answer
+    }
 }
