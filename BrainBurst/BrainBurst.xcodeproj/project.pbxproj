@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E5366C32A345A84003AF828 /* SharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5366C22A345A84003AF828 /* SharePlay.swift */; };
 		0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */; };
 		0EA0DE452A3431DA00ADF43A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE442A3431DA00ADF43A /* ContentView.swift */; };
 		0EA0DE472A3431DB00ADF43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA0DE462A3431DB00ADF43A /* Assets.xcassets */; };
@@ -18,12 +19,13 @@
 		1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */; };
 		4073CC152A3444A100BDC0B5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4073CC142A3444A100BDC0B5 /* images.xcassets */; };
 		4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC162A3444AB00BDC0B5 /* Utils.swift */; };
-		4073CC1B2A34451800BDC0B5 /* ShrePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */; };
 		4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */; };
 		4073CC2A2A34534500BDC0B5 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC292A34534500BDC0B5 /* RankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E5366C22A345A84003AF828 /* SharePlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlay.swift; sourceTree = "<group>"; };
+		0E5366C42A345AA0003AF828 /* BrainBurst.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrainBurst.entitlements; sourceTree = "<group>"; };
 		0EA0DE3F2A3431DA00ADF43A /* BrainBurst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainBurst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBurstApp.swift; sourceTree = "<group>"; };
 		0EA0DE442A3431DA00ADF43A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,7 +38,6 @@
 		1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNotificationToast.swift; sourceTree = "<group>"; };
 		4073CC142A3444A100BDC0B5 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4073CC162A3444AB00BDC0B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrePlay.swift; sourceTree = "<group>"; };
 		4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultHistory.swift; sourceTree = "<group>"; };
 		4073CC292A34534500BDC0B5 /* RankView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +72,7 @@
 		0EA0DE412A3431DA00ADF43A /* BrainBurst */ = {
 			isa = PBXGroup;
 			children = (
+				0E5366C42A345AA0003AF828 /* BrainBurst.entitlements */,
 				4073CC092A34424C00BDC0B5 /* Resources */,
 				4073CC0E2A34436900BDC0B5 /* Common */,
 				4073CC082A34424A00BDC0B5 /* Core */,
@@ -156,7 +158,7 @@
 		4073CC0D2A3442B700BDC0B5 /* SharePlay */ = {
 			isa = PBXGroup;
 			children = (
-				4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */,
+				0E5366C22A345A84003AF828 /* SharePlay.swift */,
 			);
 			path = SharePlay;
 			sourceTree = "<group>";
@@ -258,7 +260,7 @@
 			files = (
 				0EA0DE452A3431DA00ADF43A /* ContentView.swift in Sources */,
 				0EA0DE5F2A3447C500ADF43A /* GameManager.swift in Sources */,
-				4073CC1B2A34451800BDC0B5 /* ShrePlay.swift in Sources */,
+				0E5366C32A345A84003AF828 /* SharePlay.swift in Sources */,
 				0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */,
 				0EA0DE522A34320D00ADF43A /* Player.swift in Sources */,
 				0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */,
@@ -397,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BrainBurst/BrainBurst.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BrainBurst/Preview Content\"";
@@ -426,6 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BrainBurst/BrainBurst.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BrainBurst/Preview Content\"";
