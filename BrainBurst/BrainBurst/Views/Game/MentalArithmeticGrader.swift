@@ -62,7 +62,9 @@ final class MentalArithmeticGrader: ObservableObject {
         currentQuize = newQuize
     }
     
-    func gradeProcess(_ userAnswer: String) {
+    func gradeProcess(_ userAnswer: String) -> Bool {
+        
+        var isAnswer: Bool = false
         
         let userAnswerConvert = Int(userAnswer) ?? 0
         // true
@@ -70,12 +72,14 @@ final class MentalArithmeticGrader: ObservableObject {
             if gameManager.checkAnswer(quiz: currentQuize,
                                        userAnswer: userAnswerConvert) {
                 result += 1
+                isAnswer = true
             }
             if !quizes.isEmpty {
                 quizes.removeFirst()
                 updateQuize()
             }
         }
+        return isAnswer
     }
     
     func startSharing(completion: @escaping (() -> Void)) {
