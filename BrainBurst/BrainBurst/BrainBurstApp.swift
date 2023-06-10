@@ -9,8 +9,16 @@ import SwiftUI
 
 @main
 struct BrainBurstApp: App {
+    
+    @State private var isLogin: Bool = !UserInfo.nickName.isEmpty
+    
     var body: some Scene {
         WindowGroup {
+//            if isLogin {
+//                HomeView()
+//            } else {
+//                LoginView(isLogin: $isLogin)
+//            }
             HomeView()
         }
     }
