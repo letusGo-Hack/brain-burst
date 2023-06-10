@@ -17,7 +17,6 @@ struct GameResult: Codable, Hashable {
 class GameViewModel: ObservableObject {
     
     @Published var quizes: [Quiz] = []
-    @Published var resultName: GameResult = GameResult(userId: "", score: 0)
     
     var gameManager: GameManager
     var messenger: GroupSessionMessenger?
@@ -67,7 +66,7 @@ class GameViewModel: ObservableObject {
     func loadGameResult(_ result: GameResult) {
         print(result)
         DispatchQueue.main.async { [weak self] in
-            self?.resultName = result
+//            self?.resultName = result
         }
     }
     

@@ -16,12 +16,14 @@
 		0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE562A343A6600ADF43A /* Quiz.swift */; };
 		0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */; };
 		0EA0DE5F2A3447C500ADF43A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE5E2A3447C500ADF43A /* GameManager.swift */; };
+		0EC8BAB72A3479C100943D75 /* MentalArithmeticGrader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8BAB62A3479C100943D75 /* MentalArithmeticGrader.swift */; };
+		0EC8BAB92A3479D900943D75 /* GameQuizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC8BAB82A3479D900943D75 /* GameQuizeView.swift */; };
 		1D1E90A82A347569007710DE /* GameHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1E90A72A347569007710DE /* GameHistoryItem.swift */; };
 		1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */; };
 		1D4A50112A34606900AD04F0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A500F2A34606900AD04F0 /* HomeView.swift */; };
 		1D4A50122A34606900AD04F0 /* SharePlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A50102A34606900AD04F0 /* SharePlayButton.swift */; };
 		401B57B42A346E6000AD8D62 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B57B32A346E6000AD8D62 /* UserInfo.swift */; };
-		401B57B72A347BED00AD8D62 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B57B62A347BED00AD8D62 /* LoginView.swift */; };
+		401B57B92A3480D700AD8D62 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B57B82A3480D700AD8D62 /* LoginView.swift */; };
 		4073CC152A3444A100BDC0B5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4073CC142A3444A100BDC0B5 /* images.xcassets */; };
 		4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC162A3444AB00BDC0B5 /* Utils.swift */; };
 		4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */; };
@@ -40,12 +42,14 @@
 		0EA0DE562A343A6600ADF43A /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalArithmetic.swift; sourceTree = "<group>"; };
 		0EA0DE5E2A3447C500ADF43A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameManager.swift; path = BrainBurst/Game/GameManager.swift; sourceTree = SOURCE_ROOT; };
+		0EC8BAB62A3479C100943D75 /* MentalArithmeticGrader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentalArithmeticGrader.swift; sourceTree = "<group>"; };
+		0EC8BAB82A3479D900943D75 /* GameQuizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameQuizeView.swift; sourceTree = "<group>"; };
 		1D1E90A72A347569007710DE /* GameHistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryItem.swift; sourceTree = "<group>"; };
 		1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNotificationToast.swift; sourceTree = "<group>"; };
 		1D4A500F2A34606900AD04F0 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1D4A50102A34606900AD04F0 /* SharePlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlayButton.swift; sourceTree = "<group>"; };
 		401B57B32A346E6000AD8D62 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		401B57B62A347BED00AD8D62 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		401B57B82A3480D700AD8D62 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4073CC142A3444A100BDC0B5 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4073CC162A3444AB00BDC0B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultHistory.swift; sourceTree = "<group>"; };
@@ -113,9 +117,11 @@
 		0EA0DE542A343A4100ADF43A /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				0EC8BAB62A3479C100943D75 /* MentalArithmeticGrader.swift */,
 				1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */,
 				0EA0DE562A343A6600ADF43A /* Quiz.swift */,
 				0EA0DE5E2A3447C500ADF43A /* GameManager.swift */,
+				0EC8BAB82A3479D900943D75 /* GameQuizeView.swift */,
 				0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */,
 				0E5366C52A345B28003AF828 /* GameViewModel.swift */,
 			);
@@ -135,7 +141,7 @@
 		401B57B52A347BE600AD8D62 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				401B57B62A347BED00AD8D62 /* LoginView.swift */,
+				401B57B82A3480D700AD8D62 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -296,14 +302,16 @@
 				0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */,
 				0EA0DE522A34320D00ADF43A /* Player.swift in Sources */,
 				0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */,
+				0EC8BAB72A3479C100943D75 /* MentalArithmeticGrader.swift in Sources */,
 				1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */,
 				0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */,
 				4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */,
 				1D4A50112A34606900AD04F0 /* HomeView.swift in Sources */,
+				401B57B92A3480D700AD8D62 /* LoginView.swift in Sources */,
 				1D4A50122A34606900AD04F0 /* SharePlayButton.swift in Sources */,
 				4073CC2A2A34534500BDC0B5 /* RankView.swift in Sources */,
 				401B57B42A346E6000AD8D62 /* UserInfo.swift in Sources */,
-				401B57B72A347BED00AD8D62 /* LoginView.swift in Sources */,
+				0EC8BAB92A3479D900943D75 /* GameQuizeView.swift in Sources */,
 				4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

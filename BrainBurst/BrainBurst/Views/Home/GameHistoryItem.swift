@@ -7,24 +7,9 @@
 
 import SwiftUI
 
-// Sample: GameReusltHistory로 변경 필요.
-struct GameResultSample {
-    var rank: Int
-    var score: Int
-    var endDate: Date
-    var createDate: Date
-    
-    init(rank: Int, score: Int, endDate: Date, createDate: Date) {
-        self.rank = rank
-        self.score = score
-        self.endDate = endDate
-        self.createDate = createDate
-    }
-}
-
 struct GameHistoryItem: View {
     
-    var gameResult: GameResultSample = GameResultSample(rank: 1, score: 10, endDate: Date(), createDate: Date())
+    var gameResult: GameResultHistory
     
     var body: some View {
         HStack {
@@ -46,7 +31,8 @@ struct GameHistoryItem: View {
 }
 
 #Preview {
-        GameHistoryItem()
+    GameHistoryItem(gameResult: GameResultHistory.dummy.first!)
+            .modelContainer(for: GameResultHistory.self)
 }
 
 
