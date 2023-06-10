@@ -11,10 +11,18 @@ import GroupActivities
 final class MentalArithmeticGrader: ObservableObject {
     @Published var quiz: String = ""
     @Published var answer: Int = 0
-    @Published var isMyWin: Bool = true
+    @Published var myRanking: Int = 1
     @Published var gameResults: [GameResult] = [] {
         didSet {
             if gameResults.count == session?.activeParticipants.count {
+                let sortedResult = gameResults.sorted {
+                    $0.score > $1.score
+                }
+                let myRanking = sortedResult.firstIndex {
+                    $0.userId == UserInfo.uuid
+                } ?? 0
+                self.myRanking = myRanking + 1
+                
                 showResult.toggle()
             }
         }
@@ -147,7 +155,8 @@ final class MentalArithmeticGrader: ObservableObject {
     }
     
     func sendResult() {
-        let result = GameResult(userId: "", score: result)
+        let userId = UserInfo.uuid
+        let result = GameResult(userId: userId, score: result)
         gameResults.append(result)
 //        isMyWin = true
 //        showResult.toggle()
