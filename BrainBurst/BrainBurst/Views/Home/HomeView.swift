@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     
-    private var histories: [Int] = (1...32).map { $0 }
-
+    @Query var histories: [GameResultHistory]
     @State var isPlay: Bool = false
 
-//    private var histories: [GameResultHistory] = GameResultHistory.dummy
     
     var body: some View {
         
@@ -32,14 +31,14 @@ struct HomeView: View {
                     .gridColumnAlignment(.leading)
                     .font(.largeTitle)
                     .bold()
+                    
                 
                 List {
-                    
                     ForEach(histories, id: \.self) { item in
-                        GameHistoryItem()
+                        GameHistoryItem(gameResult: item)
                     }
-                    
                 }
+                
                 .listStyle(.plain)
                 
             }
@@ -77,8 +76,9 @@ struct HomeView: View {
     }
 }
 
+
 #Preview {
     HomeView()
+        .modelContainer(for: GameResultHistory.self)
 }
-
 
