@@ -38,3 +38,10 @@ extension View {
        
    }
 }
+
+
+enum Theme {
+    
+    static var colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
+    
+}
