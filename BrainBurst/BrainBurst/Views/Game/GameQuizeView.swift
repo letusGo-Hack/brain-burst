@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Combine
 
 struct QuizGameView: View {
     
     @State var quizText: String = "Quiz"
     @State var userAnswer: String = ""
-    @ObservedObject var grader: MentalArithmeticGrader    
+    @State var showResult: Bool = false
+    @ObservedObject var grader: MentalArithmeticGrader
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     init(grader: MentalArithmeticGrader) {
         self.grader = grader
@@ -47,6 +51,11 @@ struct QuizGameView: View {
             grader.viewLoaded()
         }
         .background()
+        .alert(grader.isMyWin ? "님 이김" : "님 짐ㅅㄱ", isPresented: $grader.showResult) {
+            
+        } message: {
+            Text("score: \(grader.gameResult?.score ?? 0)")
+        }
         .task {
             for await session in GameGroupActivity.sessions() {
                 grader.configureGroupSession(session)

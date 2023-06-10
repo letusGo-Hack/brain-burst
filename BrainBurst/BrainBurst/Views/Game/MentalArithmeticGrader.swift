@@ -11,6 +11,9 @@ import GroupActivities
 final class MentalArithmeticGrader: ObservableObject {
     @Published var quiz: String = ""
     @Published var answer: Int = 0
+    @Published var isMyWin: Bool = true
+    @Published var gameResult: GameResult?
+    @Published var showResult: Bool = false
 
     private var quizes: [Quiz] = [] {
         didSet {
@@ -28,6 +31,7 @@ final class MentalArithmeticGrader: ObservableObject {
     
     private var result = 0
     
+    
     init(gameManager: GameManager) {
         self.gameManager = gameManager
     }
@@ -44,6 +48,7 @@ final class MentalArithmeticGrader: ObservableObject {
     private func updateQuize() {
         guard let newQuize = quizes.first else {
             quiz = "결과: \(result)"
+            sendResult()
             return
         }
         currentQuize = newQuize
@@ -107,6 +112,8 @@ final class MentalArithmeticGrader: ObservableObject {
         print(result)
         DispatchQueue.main.async { [weak self] in
 //            self?.resultName = result
+            self?.isMyWin = false
+            self?.showResult.toggle()
         }
     }
     
@@ -126,7 +133,9 @@ final class MentalArithmeticGrader: ObservableObject {
     }
     
     func sendResult() {
-        let result = GameResult(userId: ["asdf", "hr5w"].randomElement()!, score: 3)
+        let result = GameResult(userId: ["asdf", "hr5w"].randomElement()!, score: result)
+        isMyWin = true
+        showResult.toggle()
         
         Task {
             do {
