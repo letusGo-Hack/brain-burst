@@ -33,8 +33,8 @@ struct AnswerNotificationToast: View {
         }
     }
     
-    @Binding var isHidden : Bool
-    var result : Result
+    @Binding var isShow: Bool
+    var result: Result
     
     var body: some View {
         Image(systemName: result.imageNamed)
@@ -42,7 +42,7 @@ struct AnswerNotificationToast: View {
             .frame(width: 300, height: 300)
             .foregroundColor(result.color)
             .symbolEffect(.pulse)
-            .isVisible(isVisible: isHidden)
+            .isVisible(isVisible: isShow)
         
     }
 }
@@ -51,39 +51,42 @@ struct AnswerNotificationToast: View {
  
 
 // MARK: - Sample Code
-//struct ContentView: View {
-//    
-//    @State private var isShowAnswer: Bool = false
-//    
-//    var body: some View {
-//        ZStack {
-//            VStack {
-//                
-//                Text("Hello, world!")
-//                Button(action: {
-//                    print("test")
-//                    showAnswerNotification()
-//                }, label: {
-//                    Text("Button")
-//                })
-//                
-//            }
-//            .padding()
-//            
-//            AnswerNotificationToast(isHidden: $isShowAnswer, result: .correct)
-//            
-//            
-//        }
-//    }
-//    
-//    private func showAnswerNotification() {
-//        isShowAnswer = true
-//        
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-//            withAnimation(.easeInOut) {
-//                isShowAnswer = false
-//            }
-//        }
-//    }
-//}
+struct AnswerNotificationToastTestView: View {
+    
+    @State private var isShowAnswer: Bool = false
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                
+                Text("Hello, world!")
+                Button(action: {
+                    print("test")
+                    showAnswerNotification()
+                }, label: {
+                    Text("Button")
+                })
+                
+            }
+            .padding()
+            
+            AnswerNotificationToast(isShow: $isShowAnswer, result: .correct)
+            
+            
+        }
+    }
+    
+    private func showAnswerNotification() {
+        isShowAnswer = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation(.easeInOut) {
+                isShowAnswer = false
+            }
+        }
+    }
+}
 
+#Preview {
+    AnswerNotificationToastTestView()
+}

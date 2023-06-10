@@ -15,6 +15,9 @@ struct QuizGameView: View {
     @State var showResult: Bool = false
     @ObservedObject var grader: MentalArithmeticGrader
     
+    @State private var isShowAnswer: Bool = false
+        
+    
     private var subscriptions = Set<AnyCancellable>()
     
     init(grader: MentalArithmeticGrader) {
@@ -22,43 +25,59 @@ struct QuizGameView: View {
     }
     
     var body: some View {
-        VStack {
-            Button {
-                grader.startSharing {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.grader.sendQuiz()
+        ZStack {
+            VStack {
+                Button {
+                    grader.startSharing {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.grader.sendQuiz()
+                        }
                     }
+                } label: {
+                    Text("게임 시작")
                 }
-            } label: {
-                Text("게임 시작")
+                .padding()
+                
+                Spacer()
+                Text(grader.quiz)
+                    .font(.title)
+                Spacer()
+                TextField("Enter Answer", text: $userAnswer)
+                    .multilineTextAlignment(.center)
+                Text("확인용 답: \(grader.answer)")
+                Spacer()
+                Button("Next") {
+                    isShowAnswer = grader.gradeProcess(userAnswer)
+                    showAnswerNotification(isShowAnswer)
+                    
+                    userAnswer = ""
+                }
+                Spacer()
+            }.onAppear {
+                grader.viewLoaded()
             }
-            .padding()
-            
-            Spacer()
-            Text(grader.quiz)
-                .font(.title)
-            Spacer()
-            TextField("Enter Answer", text: $userAnswer)
-                .multilineTextAlignment(.center)
-            Text("확인용 답: \(grader.answer)")
-            Spacer()
-            Button("Next") {
-                grader.gradeProcess(userAnswer)
-                userAnswer = ""
+            .background()
+            .alert(grader.isMyWin ? "님 이김" : "님 짐ㅅㄱ", isPresented: $grader.showResult) {
+                
+            } message: {
+                //            Text("score: \(grader.gameResult?.score ?? 0)")
             }
-            Spacer()
-        }.onAppear {
-            grader.viewLoaded()
-        }
-        .background()
-        .alert(grader.isMyWin ? "님 이김" : "님 짐ㅅㄱ", isPresented: $grader.showResult) {
+            .task {
+                for await session in GameGroupActivity.sessions() {
+                    grader.configureGroupSession(session)
+                }
+            }
             
-        } message: {
-//            Text("score: \(grader.gameResult?.score ?? 0)")
+            AnswerNotificationToast(isShow: $isShowAnswer, result: .correct)
         }
-        .task {
-            for await session in GameGroupActivity.sessions() {
-                grader.configureGroupSession(session)
+    }
+    
+    private func showAnswerNotification(_ isShow: Bool) {
+        isShowAnswer = isShow
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation(.easeInOut) {
+                isShowAnswer = false
             }
         }
     }
