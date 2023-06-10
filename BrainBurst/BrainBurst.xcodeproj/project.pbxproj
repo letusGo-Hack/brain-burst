@@ -70,8 +70,7 @@
 				4073CC092A34424C00BDC0B5 /* Resources */,
 				4073CC0E2A34436900BDC0B5 /* Common */,
 				4073CC082A34424A00BDC0B5 /* Core */,
-				4073CC1C2A34454C00BDC0B5 /* Views */,
-				0EA0DE542A343A4100ADF43A /* Game */,
+				4073CC072A34424600BDC0B5 /* Views */,
 				0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */,
 				0EA0DE442A3431DA00ADF43A /* ContentView.swift */,
 				0EA0DE462A3431DB00ADF43A /* Assets.xcassets */,
@@ -103,6 +102,14 @@
 				0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		4073CC072A34424600BDC0B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0EA0DE542A343A4100ADF43A /* Game */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4073CC082A34424A00BDC0B5 /* Core */ = {
