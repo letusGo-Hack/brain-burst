@@ -14,13 +14,18 @@ struct RankView: View {
     
     @State private var didLoad: Bool = false
     
-    private var histories: [Int] = [1, 2, 3, 4, 5]
+    var gameResults: [GameResult]
+    private var sortedGameResults: [GameResult] {
+        return gameResults.sorted { s1, s2 in
+            return s1.score > s2.score
+        }
+    }
     
     var body: some View {
         NavigationView(content: {
             List {
-                ForEach(histories, id: \.self) { history in
-                    historyView(row: history)
+                ForEach(Array(sortedGameResults.enumerated()), id: \.element) { (index, gameResult) in
+                    historyView(index: index + 1, gameResult: gameResult)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -50,15 +55,15 @@ struct RankView: View {
         
     }
     
-    func historyView(row: Int) -> some View {
+    func historyView(index: Int, gameResult: GameResult) -> some View {
         HStack {
-            Text("\(row)")
+            Text("\(index)")
                 .frame(maxWidth: .infinity)
             
-            Text("\(row)")
+            Text("\(gameResult.userId)")
                 .frame(maxWidth: .infinity)
             
-            Text("\(row)")
+            Text("\(gameResult.score)")
                 .frame(maxWidth: .infinity)
         }
     }
@@ -69,8 +74,15 @@ struct RankView: View {
         .sheet(
             isPresented: Binding.constant(true),
             content: {
-                RankView()
-                    .modelContainer(for: GameResultHistory.self)
+                RankView(
+                    gameResults: [
+                        GameResult(userId: "kim", score: 13),
+                        GameResult(userId: "ss", score: 11),
+                        GameResult(userId: "min", score: 10),
+                        GameResult(userId: "bb", score: 14),
+                    ]
+                )
+                .modelContainer(for: GameResultHistory.self)
             }
         )
 }

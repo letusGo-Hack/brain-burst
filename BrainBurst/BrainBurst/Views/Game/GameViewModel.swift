@@ -8,7 +8,8 @@
 import Foundation
 import GroupActivities
 
-struct GameResult: Codable {
+struct GameResult: Codable, Hashable {
+    var id: UUID = UUID()
     var userId: String
     var score: Int
 }
