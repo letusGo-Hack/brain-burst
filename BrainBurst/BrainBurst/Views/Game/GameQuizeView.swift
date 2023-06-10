@@ -19,6 +19,17 @@ struct QuizGameView: View {
     
     var body: some View {
         VStack {
+            Button {
+                grader.startSharing {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.grader.sendQuiz()
+                    }
+                }
+            } label: {
+                Text("게임 시작")
+            }
+            .padding()
+            
             Spacer()
             Text(grader.quiz)
                 .font(.title)
@@ -36,6 +47,11 @@ struct QuizGameView: View {
             grader.viewLoaded()
         }
         .background()
+        .task {
+            for await session in GameGroupActivity.sessions() {
+                grader.configureGroupSession(session)
+            }
+        }
     }
 }
 
