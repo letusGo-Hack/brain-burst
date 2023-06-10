@@ -34,7 +34,7 @@ struct AnswerNotificationToast: View {
     }
     
     @Binding var isShow: Bool
-    var result: Result
+    @Binding var result: Result
     
     var body: some View {
         Image(systemName: result.imageNamed)
@@ -54,6 +54,7 @@ struct AnswerNotificationToast: View {
 struct AnswerNotificationToastTestView: View {
     
     @State private var isShowAnswer: Bool = false
+    @State private var answerResult: AnswerNotificationToast.Result = .wrong
     
     var body: some View {
         ZStack {
@@ -70,7 +71,7 @@ struct AnswerNotificationToastTestView: View {
             }
             .padding()
             
-            AnswerNotificationToast(isShow: $isShowAnswer, result: .correct)
+            AnswerNotificationToast(isShow: $isShowAnswer, result: $answerResult)
             
             
         }

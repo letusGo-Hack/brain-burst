@@ -16,6 +16,7 @@ struct QuizGameView: View {
     @ObservedObject var grader: MentalArithmeticGrader
     
     @State private var isShowAnswer: Bool = false
+    @State private var answerResult: AnswerNotificationToast.Result = .wrong
         
     
     private var subscriptions = Set<AnyCancellable>()
@@ -48,6 +49,9 @@ struct QuizGameView: View {
                 Spacer()
                 Button("Next") {
                     isShowAnswer = grader.gradeProcess(userAnswer)
+                    answerResult = isShowAnswer
+                    ? .correct
+                    : .wrong
                     showAnswerNotification(isShowAnswer)
                     
                     userAnswer = ""
@@ -68,7 +72,7 @@ struct QuizGameView: View {
                 }
             }
             
-            AnswerNotificationToast(isShow: $isShowAnswer, result: .correct)
+            AnswerNotificationToast(isShow: $isShowAnswer, result: $answerResult)
         }
     }
     
