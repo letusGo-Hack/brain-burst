@@ -26,8 +26,12 @@ struct RankView: View {
             List {
                 ForEach(Array(sortedGameResults.enumerated()), id: \.element) { (index, gameResult) in
                     historyView(index: index + 1, gameResult: gameResult)
+                        .alignmentGuide(.listRowSeparatorLeading, computeValue: { dimension in
+                            return 0
+                        })
                 }
             }
+            .listStyle(.plain)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarTitle("Rank")
             .toolbar(content: {
@@ -52,7 +56,6 @@ struct RankView: View {
             context.insert(gameResultHisotry)
             try? context.save()
         })
-        
     }
     
     func historyView(index: Int, gameResult: GameResult) -> some View {
