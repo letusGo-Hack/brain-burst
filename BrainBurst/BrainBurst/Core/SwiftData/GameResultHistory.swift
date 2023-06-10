@@ -28,7 +28,7 @@ class GameResultHistory {
 extension GameResultHistory {
     
     static var dummy: [GameResultHistory] {
-        return (1...10).map {
+        return (1...32).map {
             GameResultHistory(rank: $0, score: $0*10, endDate: Date(), createDate: Date())
         }
     }
