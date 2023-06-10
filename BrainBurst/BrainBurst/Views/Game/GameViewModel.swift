@@ -8,12 +8,23 @@
 import Foundation
 import GroupActivities
 
+struct GameResult: Codable {
+    var userId: String
+    var score: Int
+}
+
 class GameViewModel: ObservableObject {
     
-    var quizs: [Quiz] = []
+    @Published var quizes: [Quiz] = []
+    @Published var resultName: GameResult = GameResult(userId: "", score: 0)
     
+    var gameManager: GameManager
     var messenger: GroupSessionMessenger?
     var tasks = Set<Task<Void, Never>>()
+    
+    init(gameManager: GameManager) {
+        self.gameManager = gameManager
+    }
     
     func startSharing() {
         Task {
@@ -25,27 +36,45 @@ class GameViewModel: ObservableObject {
         }
     }
     
-    
     func configureGroupSession(_ session: GroupSession<GameGroupActivity>) {
         let messenger = GroupSessionMessenger(session: session)
         self.messenger = messenger
         
-        let task = Task {
+        let quizeTask = Task {
             for await (model, _) in messenger.messages(of: [MentalArithmetic].self) {
-                handle(model)
+                loadQuizes(model)
             }
         }
-        tasks.insert(task)
+        
+        let resultTask = Task {
+            for await (model, _) in messenger.messages(of: GameResult.self) {
+                loadGameResult(model)
+            }
+        }
+        tasks.insert(quizeTask)
+        tasks.insert(resultTask)
         session.join()
     }
     
-    func handle(_ quizs: [MentalArithmetic]) {
-        print(quizs)
-        self.quizs = quizs
+    func loadQuizes(_ quizes: [MentalArithmetic]) {
+        print(quizes)
+        DispatchQueue.main.async { [weak self] in
+            self?.quizes = quizes
+        }
     }
     
-    func send(_ quizs: [Quiz]) {
-        let mentalArithmeticQuizs = quizs.map { $0 as! MentalArithmetic }
+    func loadGameResult(_ result: GameResult) {
+        print(result)
+        DispatchQueue.main.async { [weak self] in
+            self?.resultName = result
+        }
+    }
+    
+    func sendQuiz() {
+        let quizes = gameManager.makeQuiz((0...5).randomElement()!)
+        self.quizes = quizes
+        
+        let mentalArithmeticQuizs = quizes.map { $0 as! MentalArithmetic }
         Task {
             do {
                 try await messenger?.send(mentalArithmeticQuizs)
@@ -54,4 +83,17 @@ class GameViewModel: ObservableObject {
             }
         }
     }
+    
+    func sendResult() {
+        let result = GameResult(userId: ["asdf", "hr5w"].randomElement()!, score: 3)
+        
+        Task {
+            do {
+                try await messenger?.send(result)
+            } catch {
+                print("can't send")
+            }
+        }
+    }
 }
+ 
