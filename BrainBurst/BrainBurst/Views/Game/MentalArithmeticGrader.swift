@@ -66,13 +66,15 @@ final class MentalArithmeticGrader: ObservableObject {
         
         let userAnswerConvert = Int(userAnswer) ?? 0
         // true
-        if gameManager.checkAnswer(quiz: currentQuize,
-                                   userAnswer: userAnswerConvert) {
-            result += 1
-        }
-        if !quizes.isEmpty {
-            quizes.removeFirst()
-            updateQuize()
+        if currentQuize != nil {
+            if gameManager.checkAnswer(quiz: currentQuize,
+                                       userAnswer: userAnswerConvert) {
+                result += 1
+            }
+            if !quizes.isEmpty {
+                quizes.removeFirst()
+                updateQuize()
+            }
         }
     }
     
