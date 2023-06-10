@@ -14,11 +14,12 @@ struct BrainBurstApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if isLogin {
-                HomeView()
-            } else {
-                LoginView(isLogin: $isLogin)
-            }
+//            if isLogin {
+//                HomeView()
+//            } else {
+//                LoginView(isLogin: $isLogin)
+//            }
+            HomeView()
         }
     }
 }
