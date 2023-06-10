@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     private var histories: [Int] = (1...32).map { $0 }
+//    private var histories: [GameResultHistory] = GameResultHistory.dummy
     
     var body: some View {
         
@@ -30,23 +31,27 @@ struct HomeView: View {
                     .bold()
                 
                 List {
-                    ForEach(histories, id: \.self) { history in
-                        historyView(row: history)
+                    
+                    ForEach(histories, id: \.self) { item in
+                        GameHistoryItem()
                     }
+                    
                 }
                 .listStyle(.plain)
                 
-                
-                SharePlayButton(actionHandler: startGame)
-                    .padding()
             }
             .padding()
             
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    SharePlayButton(actionHandler: startGame)
+                        .padding()
+                }
+            }
             
         }
-        
-        
-        
         
     }
     
@@ -68,3 +73,5 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+
