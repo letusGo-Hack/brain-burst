@@ -14,7 +14,6 @@
 		0EA0DE522A34320D00ADF43A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE512A34320D00ADF43A /* Player.swift */; };
 		0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE562A343A6600ADF43A /* Quiz.swift */; };
 		0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */; };
-		4073CC062A3441BE00BDC0B5 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC052A3441BE00BDC0B5 /* RankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,6 @@
 		0EA0DE512A34320D00ADF43A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0EA0DE562A343A6600ADF43A /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalArithmetic.swift; sourceTree = "<group>"; };
-		4073CC052A3441BE00BDC0B5 /* RankView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +57,11 @@
 		0EA0DE412A3431DA00ADF43A /* BrainBurst */ = {
 			isa = PBXGroup;
 			children = (
-				4073CC042A3441BE00BDC0B5 /* Rank */,
+				4073CC092A34424C00BDC0B5 /* Resources */,
+				4073CC0E2A34436900BDC0B5 /* Common */,
+				4073CC082A34424A00BDC0B5 /* Core */,
+				4073CC072A34424600BDC0B5 /* Views */,
 				0EA0DE542A343A4100ADF43A /* Game */,
-				0EA0DE502A34320500ADF43A /* Entity */,
 				0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */,
 				0EA0DE442A3431DA00ADF43A /* ContentView.swift */,
 				0EA0DE462A3431DB00ADF43A /* Assets.xcassets */,
@@ -95,12 +95,65 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		4073CC042A3441BE00BDC0B5 /* Rank */ = {
+		4073CC072A34424600BDC0B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4073CC052A3441BE00BDC0B5 /* RankView.swift */,
 			);
-			path = Rank;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4073CC082A34424A00BDC0B5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4073CC0D2A3442B700BDC0B5 /* SharePlay */,
+				4073CC0C2A34425E00BDC0B5 /* SwiftData */,
+				0EA0DE502A34320500ADF43A /* Entity */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4073CC092A34424C00BDC0B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4073CC0A2A34425400BDC0B5 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4073CC0A2A34425400BDC0B5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		4073CC0C2A34425E00BDC0B5 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
+		4073CC0D2A3442B700BDC0B5 /* SharePlay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SharePlay;
+			sourceTree = "<group>";
+		};
+		4073CC0E2A34436900BDC0B5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4073CC0F2A34436B00BDC0B5 /* Utils */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4073CC0F2A34436B00BDC0B5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +230,6 @@
 				0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */,
 				0EA0DE522A34320D00ADF43A /* Player.swift in Sources */,
 				0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */,
-				4073CC062A3441BE00BDC0B5 /* RankView.swift in Sources */,
 				0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
