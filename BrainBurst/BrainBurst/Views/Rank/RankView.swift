@@ -46,5 +46,11 @@ struct RankView: View {
 }
 
 #Preview {
-    RankView()
+    ContentView()
+        .sheet(
+            isPresented: Binding.constant(true),
+            content: {
+                RankView()
+            }
+        )
 }
