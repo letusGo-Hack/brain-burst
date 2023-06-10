@@ -12,9 +12,17 @@ final class MentalArithmeticGrader: ObservableObject {
     @Published var quiz: String = ""
     @Published var answer: Int = 0
     @Published var isMyWin: Bool = true
-    @Published var gameResult: GameResult?
+    @Published var gameResults: [GameResult] = [] {
+        didSet {
+            if gameResults.count == session?.activeParticipants.count {
+                showResult.toggle()
+            }
+        }
+    }
     @Published var showResult: Bool = false
 
+    private var session: GroupSession<GameGroupActivity>?
+    
     private var quizes: [Quiz] = [] {
         didSet {
 //            currentQuize = quizes.first
@@ -62,8 +70,10 @@ final class MentalArithmeticGrader: ObservableObject {
                                    userAnswer: userAnswerConvert) {
             result += 1
         }
-        _ = quizes.removeFirst()
-        updateQuize()
+        if !quizes.isEmpty {
+            quizes.removeFirst()
+            updateQuize()
+        }
     }
     
     func startSharing(completion: @escaping (() -> Void)) {
@@ -83,6 +93,8 @@ final class MentalArithmeticGrader: ObservableObject {
     func configureGroupSession(_ session: GroupSession<GameGroupActivity>) {
         let messenger = GroupSessionMessenger(session: session)
         self.messenger = messenger
+        
+        self.session = session
         
         let quizeTask = Task {
             for await (model, _) in messenger.messages(of: [MentalArithmetic].self) {
@@ -105,15 +117,14 @@ final class MentalArithmeticGrader: ObservableObject {
         DispatchQueue.main.async { [weak self] in
             self?.quizes = quizes
             self?.updateQuize()
+            self?.gameResults.removeAll()
         }
     }
     
     func loadGameResult(_ result: GameResult) {
         print(result)
         DispatchQueue.main.async { [weak self] in
-//            self?.resultName = result
-            self?.isMyWin = false
-            self?.showResult.toggle()
+            self?.gameResults.append(result)
         }
     }
     
@@ -121,6 +132,7 @@ final class MentalArithmeticGrader: ObservableObject {
         let quizes = gameManager.makeQuiz(quizeNumbers)
         self.quizes = quizes
         self.updateQuize()
+        self.gameResults.removeAll()
         
         let mentalArithmeticQuizs = quizes.map { $0 as! MentalArithmetic }
         Task {
@@ -133,9 +145,10 @@ final class MentalArithmeticGrader: ObservableObject {
     }
     
     func sendResult() {
-        let result = GameResult(userId: ["asdf", "hr5w"].randomElement()!, score: result)
-        isMyWin = true
-        showResult.toggle()
+        let result = GameResult(userId: "", score: result)
+        gameResults.append(result)
+//        isMyWin = true
+//        showResult.toggle()
         
         Task {
             do {

@@ -54,7 +54,7 @@ struct QuizGameView: View {
         .alert(grader.isMyWin ? "님 이김" : "님 짐ㅅㄱ", isPresented: $grader.showResult) {
             
         } message: {
-            Text("score: \(grader.gameResult?.score ?? 0)")
+//            Text("score: \(grader.gameResult?.score ?? 0)")
         }
         .task {
             for await session in GameGroupActivity.sessions() {
