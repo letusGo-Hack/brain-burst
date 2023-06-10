@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Quiz {
+protocol Quiz: Codable {
     var question: String { get }
     var answer: Int { get }
 }

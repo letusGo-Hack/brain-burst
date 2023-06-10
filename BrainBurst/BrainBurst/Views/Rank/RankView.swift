@@ -65,7 +65,7 @@ struct RankView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
         .sheet(
             isPresented: Binding.constant(true),
             content: {
