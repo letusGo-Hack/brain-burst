@@ -15,6 +15,7 @@
 		0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE562A343A6600ADF43A /* Quiz.swift */; };
 		0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */; };
 		0EA0DE5F2A3447C500ADF43A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE5E2A3447C500ADF43A /* GameManager.swift */; };
+		1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */; };
 		4073CC152A3444A100BDC0B5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4073CC142A3444A100BDC0B5 /* images.xcassets */; };
 		4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC162A3444AB00BDC0B5 /* Utils.swift */; };
 		4073CC192A34451200BDC0B5 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC182A34451200BDC0B5 /* SwiftData.swift */; };
@@ -31,6 +32,7 @@
 		0EA0DE562A343A6600ADF43A /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalArithmetic.swift; sourceTree = "<group>"; };
 		0EA0DE5E2A3447C500ADF43A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameManager.swift; path = BrainBurst/Game/GameManager.swift; sourceTree = SOURCE_ROOT; };
+		1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNotificationToast.swift; sourceTree = "<group>"; };
 		4073CC142A3444A100BDC0B5 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4073CC162A3444AB00BDC0B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4073CC182A34451200BDC0B5 /* SwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		0EA0DE542A343A4100ADF43A /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1D4A50042A344E4C00AD04F0 /* AnswerNotificationToast.swift */,
 				0EA0DE562A343A6600ADF43A /* Quiz.swift */,
 				0EA0DE5E2A3447C500ADF43A /* GameManager.swift */,
 				0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */,
@@ -248,6 +251,7 @@
 				0EA0DE592A343EA700ADF43A /* MentalArithmetic.swift in Sources */,
 				0EA0DE522A34320D00ADF43A /* Player.swift in Sources */,
 				0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */,
+				1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */,
 				0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */,
 				4073CC192A34451200BDC0B5 /* SwiftData.swift in Sources */,
 				4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */,
