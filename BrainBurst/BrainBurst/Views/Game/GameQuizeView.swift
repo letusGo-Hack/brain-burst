@@ -1,9 +1,9 @@
-//
-//  GameQuizeView.swift
-//  BrainBurst
-//
-//  Created by todoc on 2023/06/10.
-//
+////
+////  GameQuizeView.swift
+////  BrainBurst
+////
+////  Created by todoc on 2023/06/10.
+////
 
 import SwiftUI
 import Combine
@@ -15,6 +15,10 @@ struct QuizGameView: View {
     @State var showResult: Bool = false
     @ObservedObject var grader: MentalArithmeticGrader
     
+    @State private var isShowAnswer: Bool = false
+    @State private var answerResult: AnswerNotificationToast.Result = .wrong
+        
+    
     private var subscriptions = Set<AnyCancellable>()
     
     init(grader: MentalArithmeticGrader) {
@@ -22,56 +26,65 @@ struct QuizGameView: View {
     }
     
     var body: some View {
-        VStack {
-            Button {
-                grader.startSharing {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.grader.sendQuiz()
+        ZStack {
+            VStack {
+                Button {
+                    grader.startSharing {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.grader.sendQuiz()
+                        }
                     }
+                } label: {
+                    Text("게임 시작")
                 }
-            } label: {
-                Text("게임 시작")
-            }
-            .padding()
-            
-            Spacer()
-            
-            Text("\(grader.timerText)")
-                .fontWidth(Font.Width(30))
                 .padding()
-            
-            Text(grader.quiz)
-                .font(.title)
-            Spacer()
-            TextField("Enter Answer", text: $userAnswer)
-                .multilineTextAlignment(.center)
-            Text("확인용 답: \(grader.answer)")
-            Spacer()
-            Button("Next") {
-                grader.gradeProcess(userAnswer)
-                userAnswer = ""
+                
+                Text(grader.timerText)
+                    .fontWidth(Font.Width(30))
+                    .padding()
+                Spacer()
+                Text(grader.quiz)
+                    .font(.title)
+                Spacer()
+                TextField("Enter Answer", text: $userAnswer)
+                    .multilineTextAlignment(.center)
+                Text("확인용 답: \(grader.answer)")
+                Spacer()
+                Button("Next") {
+                    isShowAnswer = grader.gradeProcess(userAnswer)
+                    answerResult = isShowAnswer
+                    ? .correct
+                    : .wrong
+                    showAnswerNotification(isShowAnswer)
+                    
+                    userAnswer = ""
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .background()
-        .alert("게임종료", isPresented: $grader.showResult) {
+            .background()
+            .alert("게임종료", isPresented: $grader.showResult) {
+                
+            } message: {
+                Text("ranking: \(grader.myRanking)")
+            }
+            .task {
+                for await session in GameGroupActivity.sessions() {
+                    grader.configureGroupSession(session)
+                }
+            }
             
-        } message: {
-            Text("ranking: \(grader.myRanking)")
+            AnswerNotificationToast(isShow: $isShowAnswer, result: $answerResult)
         }
-        .task {
-            for await session in GameGroupActivity.sessions() {
-                grader.configureGroupSession(session)
+    }
+    
+    private func showAnswerNotification(_ isShow: Bool) {
+        isShowAnswer = isShow
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            withAnimation(.easeInOut) {
+                isShowAnswer = false
             }
         }
     }
 }
 
-struct QuizGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        let maker = MentalArithmeticQuizMaker()
-        let gameManager = GameManager(maker: maker)
-        let grader = MentalArithmeticGrader(gameManager: gameManager)
-        return QuizGameView(grader: grader)
-    }
-}
