@@ -35,6 +35,11 @@ struct QuizGameView: View {
             .padding()
             
             Spacer()
+            
+            Text("\(grader.timerText)")
+                .fontWidth(Font.Width(30))
+                .padding()
+            
             Text(grader.quiz)
                 .font(.title)
             Spacer()
@@ -47,8 +52,6 @@ struct QuizGameView: View {
                 userAnswer = ""
             }
             Spacer()
-        }.onAppear {
-            grader.viewLoaded()
         }
         .background()
         .alert("게임종료", isPresented: $grader.showResult) {

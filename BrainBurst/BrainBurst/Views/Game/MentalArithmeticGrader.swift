@@ -31,11 +31,7 @@ final class MentalArithmeticGrader: ObservableObject {
 
     private var session: GroupSession<GameGroupActivity>?
     
-    private var quizes: [Quiz] = [] {
-        didSet {
-//            currentQuize = quizes.first
-        }
-    }
+    private var quizes: [Quiz] = []
     private var currentQuize: Quiz!{
         didSet {
             self.quiz = currentQuize.question
@@ -52,11 +48,6 @@ final class MentalArithmeticGrader: ObservableObject {
         self.gameManager = gameManager
     }
     
-    func viewLoaded() {
-//        makeQuizes()
-//        updateQuize()
-    }
-    
     private func makeQuizes() {
         self.quizes = gameManager.makeQuiz(quizeNumbers)
     }
@@ -67,11 +58,12 @@ final class MentalArithmeticGrader: ObservableObject {
             sendResult()
             return
         }
+        startTimer()
         currentQuize = newQuize
     }
     
     func gradeProcess(_ userAnswer: String) {
-        
+        stopTimer()
         let userAnswerConvert = Int(userAnswer) ?? 0
         // true
         if currentQuize != nil {
@@ -143,6 +135,7 @@ final class MentalArithmeticGrader: ObservableObject {
         self.quizes = quizes
         self.updateQuize()
         self.gameResults.removeAll()
+        self.result = 0
         
         let mentalArithmeticQuizs = quizes.map { $0 as! MentalArithmetic }
         Task {
@@ -155,11 +148,8 @@ final class MentalArithmeticGrader: ObservableObject {
     }
     
     func sendResult() {
-        let userId = UserInfo.uuid
-        let result = GameResult(userId: userId, score: result)
+        let result = GameResult(userId: UserInfo.uuid, score: result)
         gameResults.append(result)
-//        isMyWin = true
-//        showResult.toggle()
         
         Task {
             do {
@@ -167,6 +157,38 @@ final class MentalArithmeticGrader: ObservableObject {
             } catch {
                 print("can't send")
             }
+        }
+    }
+    
+    @Published var timerText: String = "10"
+    private var answerTimer: Timer?
+    private var seconds: Int = 10 {
+        didSet {
+            timerText = "\(seconds)"
+        }
+    }
+    private func startTimer() {
+        //타이머 사용값 초기화
+        //1초 간격 타이머 시작
+        if answerTimer != nil, answerTimer!.isValid {
+            answerTimer?.invalidate()
+        }
+        
+        answerTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true)
+    }
+    
+    private func stopTimer() {
+        answerTimer?.invalidate()
+        answerTimer = nil
+        seconds = 10
+    }
+    
+    @objc private func timerCallback() {
+        seconds -= 1
+        if seconds == 0 {
+            _ = quizes.removeFirst()
+            stopTimer()
+            updateQuize()
         }
     }
 }

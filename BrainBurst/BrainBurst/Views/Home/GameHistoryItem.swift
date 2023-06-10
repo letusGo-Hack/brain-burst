@@ -46,7 +46,7 @@ struct GameHistoryItem: View {
 }
 
 #Preview {
-        GameHistoryItem()
+    GameHistoryItem()
 }
 
 
