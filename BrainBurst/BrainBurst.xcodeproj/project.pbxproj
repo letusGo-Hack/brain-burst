@@ -17,8 +17,8 @@
 		0EA0DE5F2A3447C500ADF43A /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE5E2A3447C500ADF43A /* GameManager.swift */; };
 		4073CC152A3444A100BDC0B5 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4073CC142A3444A100BDC0B5 /* images.xcassets */; };
 		4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC162A3444AB00BDC0B5 /* Utils.swift */; };
-		4073CC192A34451200BDC0B5 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC182A34451200BDC0B5 /* SwiftData.swift */; };
 		4073CC1B2A34451800BDC0B5 /* ShrePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */; };
+		4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +33,8 @@
 		0EA0DE5E2A3447C500ADF43A /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameManager.swift; path = BrainBurst/Game/GameManager.swift; sourceTree = SOURCE_ROOT; };
 		4073CC142A3444A100BDC0B5 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4073CC162A3444AB00BDC0B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		4073CC182A34451200BDC0B5 /* SwiftData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
 		4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrePlay.swift; sourceTree = "<group>"; };
+		4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 		4073CC0C2A34425E00BDC0B5 /* SwiftData */ = {
 			isa = PBXGroup;
 			children = (
-				4073CC182A34451200BDC0B5 /* SwiftData.swift */,
+				4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 				0EA0DE522A34320D00ADF43A /* Player.swift in Sources */,
 				0EA0DE572A343A6600ADF43A /* Quiz.swift in Sources */,
 				0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */,
-				4073CC192A34451200BDC0B5 /* SwiftData.swift in Sources */,
+				4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */,
 				4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
