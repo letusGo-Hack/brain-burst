@@ -47,14 +47,16 @@ struct RankView: View {
                 didLoad = true
             }
             
-            let gameResultHisotry = GameResultHistory(
-                rank: 1,
-                score: 10,
-                endDate: Date(),
-                createDate: Date()
-            )
-            context.insert(gameResultHisotry)
-            try? context.save()
+            if let gameResult = sortedGameResults.enumerated().filter({ $1.userId == UserInfo.uuid }).first {
+                let gameResultHisotry = GameResultHistory(
+                    rank: gameResult.offset + 1,
+                    score: gameResult.element.score,
+                    endDate: Date(),
+                    createDate: Date()
+                )
+                context.insert(gameResultHisotry)
+                try? context.save()
+            }
         })
     }
     
