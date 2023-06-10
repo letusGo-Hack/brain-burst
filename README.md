@@ -2,10 +2,8 @@
 
 Brain-Burst
 팀원
-이름 : Evie
-이름 : 대원
-이름 : 김지민
-이름 : sweet-food
+
+Evie, 대원, 김지민, sweet-food
 
 프로젝트 소개
 - SharePlay, SF Symbols Animation, SwiftData
