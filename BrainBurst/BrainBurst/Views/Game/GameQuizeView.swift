@@ -35,6 +35,11 @@ struct QuizGameView: View {
             .padding()
             
             Spacer()
+            
+            Text("\(grader.timerText)")
+                .fontWidth(Font.Width(30))
+                .padding()
+            
             Text(grader.quiz)
                 .font(.title)
             Spacer()
@@ -47,14 +52,12 @@ struct QuizGameView: View {
                 userAnswer = ""
             }
             Spacer()
-        }.onAppear {
-            grader.viewLoaded()
         }
         .background()
-        .alert(grader.isMyWin ? "님 이김" : "님 짐ㅅㄱ", isPresented: $grader.showResult) {
+        .alert("게임종료", isPresented: $grader.showResult) {
             
         } message: {
-//            Text("score: \(grader.gameResult?.score ?? 0)")
+            Text("ranking: \(grader.myRanking)")
         }
         .task {
             for await session in GameGroupActivity.sessions() {
