@@ -20,6 +20,7 @@
 		4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC162A3444AB00BDC0B5 /* Utils.swift */; };
 		4073CC1B2A34451800BDC0B5 /* ShrePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */; };
 		4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */; };
+		4073CC2A2A34534500BDC0B5 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4073CC292A34534500BDC0B5 /* RankView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		4073CC162A3444AB00BDC0B5 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4073CC1A2A34451800BDC0B5 /* ShrePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShrePlay.swift; sourceTree = "<group>"; };
 		4073CC272A344B5F00BDC0B5 /* GameResultHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultHistory.swift; sourceTree = "<group>"; };
+		4073CC292A34534500BDC0B5 /* RankView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		4073CC072A34424600BDC0B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4073CC242A34472C00BDC0B5 /* Rank */,
 				0EA0DE542A343A4100ADF43A /* Game */,
 			);
 			path = Views;
@@ -172,6 +175,14 @@
 				4073CC162A3444AB00BDC0B5 /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4073CC242A34472C00BDC0B5 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				4073CC292A34534500BDC0B5 /* RankView.swift */,
+			);
+			path = Rank;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +265,7 @@
 				1D4A50052A344E4C00AD04F0 /* AnswerNotificationToast.swift in Sources */,
 				0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */,
 				4073CC282A344B5F00BDC0B5 /* GameResultHistory.swift in Sources */,
+				4073CC2A2A34534500BDC0B5 /* RankView.swift in Sources */,
 				4073CC172A3444AB00BDC0B5 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
