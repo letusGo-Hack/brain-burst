@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E5366C32A345A84003AF828 /* SharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5366C22A345A84003AF828 /* SharePlay.swift */; };
+		0E5366C62A345B28003AF828 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5366C52A345B28003AF828 /* GameViewModel.swift */; };
 		0EA0DE432A3431DA00ADF43A /* BrainBurstApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */; };
 		0EA0DE452A3431DA00ADF43A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA0DE442A3431DA00ADF43A /* ContentView.swift */; };
 		0EA0DE472A3431DB00ADF43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA0DE462A3431DB00ADF43A /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0E5366C22A345A84003AF828 /* SharePlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePlay.swift; sourceTree = "<group>"; };
 		0E5366C42A345AA0003AF828 /* BrainBurst.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BrainBurst.entitlements; sourceTree = "<group>"; };
+		0E5366C52A345B28003AF828 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0EA0DE3F2A3431DA00ADF43A /* BrainBurst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainBurst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA0DE422A3431DA00ADF43A /* BrainBurstApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainBurstApp.swift; sourceTree = "<group>"; };
 		0EA0DE442A3431DA00ADF43A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				0EA0DE562A343A6600ADF43A /* Quiz.swift */,
 				0EA0DE5E2A3447C500ADF43A /* GameManager.swift */,
 				0EA0DE582A343EA700ADF43A /* MentalArithmetic.swift */,
+				0E5366C52A345B28003AF828 /* GameViewModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E5366C62A345B28003AF828 /* GameViewModel.swift in Sources */,
 				0EA0DE452A3431DA00ADF43A /* ContentView.swift in Sources */,
 				0EA0DE5F2A3447C500ADF43A /* GameManager.swift in Sources */,
 				0E5366C32A345A84003AF828 /* SharePlay.swift in Sources */,
